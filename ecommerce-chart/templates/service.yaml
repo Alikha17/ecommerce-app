@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongodb
+  name: backend
   namespace: ecommerce-prod
 spec:
-  clusterIP: None
+  type: LoadBalancer
   selector:
-    app: mongodb
+    app: backend
   ports:
-  - port: 27017
+  - port: 5000
+    targetPort: 5000
